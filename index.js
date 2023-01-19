@@ -5,6 +5,7 @@ import { createServer } from 'http';
 import { Server } from 'socket.io';
 import { uploadPostImageDisk } from './src/middleware/upload.js';
 
+const PORT = process.env.PORT || 5000;
 
 const app = express();
 
@@ -13,6 +14,7 @@ const server = createServer(app);
 export const io = new Server(server,{
   cors: {
     origin: "*",
+    methods: ["GET", "POST"]
   }
 });
 
@@ -38,4 +40,4 @@ app.get('/comments/:id', CommController.getOne);
 
 app.post('/comments', express.json() , CommController.add);
 
-server.listen(5000);
+server.listen(PORT);
