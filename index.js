@@ -13,7 +13,7 @@ const server = createServer(app);
 
 export const io = new Server(server,{
   cors: {
-    origin: "*",
+    origin: "https://papaya-concha-993cdf.netlify.app/",
     methods: ["GET", "POST"]
   }
 });
